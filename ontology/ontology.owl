@@ -1,100 +1,140 @@
-@prefix : <http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#> .
+@prefix : <http://www.BiSafe.com/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3> .
+@base <http://www.BiSafe.com/ontology> .
 
-<http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3> rdf:type owl:Ontology .
+<http://www.BiSafe.com/ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://BiSafe.com/ontology#belongsTo
+<http://BiSafe.com/ontology#belongsTo> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf owl:topObjectProperty ;
+                                       rdfs:domain :Street ;
+                                       rdfs:range :District .
+
+
+###  http://BiSafe.com/ontology#happenedIn
+<http://BiSafe.com/ontology#happenedIn> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.BiSafe#Accident> ;
+                                        rdfs:range :Street .
+
+
+###  http://BiSafe.com/ontology#hasCondition
+<http://BiSafe.com/ontology#hasCondition> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.BiSafe#Accident> ;
+                                          rdfs:range :Road_condition .
+
+
+###  http://BiSafe.com/ontology#involvedIn
+<http://BiSafe.com/ontology#involvedIn> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :Person ;
+                                        rdfs:range <http://www.BiSafe#Accident> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://BiSafe.com/ontology#atNumber
+<http://BiSafe.com/ontology#atNumber> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Street ;
+                                      rdfs:range xsd:integer .
+
+
+###  http://BiSafe.com/ontology#happenedOn
+<http://BiSafe.com/ontology#happenedOn> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <http://www.BiSafe#Accident> ;
+                                        rdfs:range xsd:dateTime .
+
+
+###  http://BiSafe.com/ontology#hasAge
+<http://BiSafe.com/ontology#hasAge> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Person ;
+                                    rdfs:range xsd:integer .
+
+
+###  http://BiSafe.com/ontology#hasCode
+<http://BiSafe.com/ontology#hasCode> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <http://www.BiSafe#Accident> ;
+                                     rdfs:range xsd:integer .
+
+
+###  http://BiSafe.com/ontology#hasRole
+<http://BiSafe.com/ontology#hasRole> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Person ;
+                                     rdfs:range xsd:string .
+
+
+###  http://BiSafe.com/ontology#hasSex
+<http://BiSafe.com/ontology#hasSex> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Person ;
+                                    rdfs:range xsd:string .
+
+
+###  http://BiSafe.com/ontology#hasVictimNumber
+<http://BiSafe.com/ontology#hasVictimNumber> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://www.BiSafe#Accident> ;
+                                             rdfs:range xsd:integer .
+
+
+###  http://BiSafe.com/ontology#isFoggy
+<http://BiSafe.com/ontology#isFoggy> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Road_condition ;
+                                     rdfs:range xsd:boolean .
+
+
+###  http://BiSafe.com/ontology#isOily
+<http://BiSafe.com/ontology#isOily> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Road_condition ;
+                                    rdfs:range xsd:boolean .
+
+
+###  http://BiSafe.com/ontology#isRaining
+<http://BiSafe.com/ontology#isRaining> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Road_condition ;
+                                       rdfs:range xsd:boolean .
+
+
+###  http://BiSafe.com/ontology#isSnowing
+<http://BiSafe.com/ontology#isSnowing> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Road_condition ;
+                                       rdfs:range xsd:boolean .
+
+
+###  http://BiSafe.com/ontology#typeOfAccident
+<http://BiSafe.com/ontology#typeOfAccident> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.BiSafe#Accident> ;
+                                            rdfs:range xsd:string .
+
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#Age
-:Age rdf:type owl:Class ;
-     rdfs:subClassOf :Person ;
-     owl:disjointWith :Sex .
+###  http://www.BiSafe#Accident
+<http://www.BiSafe#Accident> rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#Date
-:Date rdf:type owl:Class .
+###  http://www.BiSafe.com/ontology#District
+:District rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#District
-:District rdf:type owl:Class ;
-          rdfs:subClassOf :Street_in .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#N_victim
-:N_victim rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#Person
+###  http://www.BiSafe.com/ontology#Person
 :Person rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#Sex
-:Sex rdf:type owl:Class ;
-     rdfs:subClassOf :Person .
+###  http://www.BiSafe.com/ontology#Road_condition
+:Road_condition rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#Street_in
-:Street_in rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#dry
-:dry rdf:type owl:Class ;
-     rdfs:subClassOf :road_condition .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#fog
-:fog rdf:type owl:Class ;
-     rdfs:subClassOf :road_condition .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#ice
-:ice rdf:type owl:Class ;
-     rdfs:subClassOf :road_condition .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#number
-:number rdf:type owl:Class ;
-        rdfs:subClassOf :Street_in .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#rain
-:rain rdf:type owl:Class ;
-      rdfs:subClassOf :road_condition .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#road_condition
-:road_condition rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#role
-:role rdf:type owl:Class ;
-      rdfs:subClassOf :Person .
-
-
-###  http://www.semanticweb.org/cycle/ontologies/2018/9/untitled-ontology-3#snow
-:snow rdf:type owl:Class ;
-      rdfs:subClassOf :road_condition .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :dry
-                :fog
-                :ice
-                :rain
-                :snow
-              )
-] .
+###  http://www.BiSafe.com/ontology#Street
+:Street rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
