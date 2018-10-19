@@ -9,21 +9,16 @@
 <http://www.BiSafe.com/ontology> rdf:type owl:Ontology .
 
 #################################################################
-#    Object Properties
+#    Datatypes
 #################################################################
 
-###  http://BiSafe.com/ontology#belongsTo
-<http://BiSafe.com/ontology#belongsTo> rdf:type owl:ObjectProperty ;
-                                       rdfs:subPropertyOf owl:topObjectProperty ;
-                                       rdfs:domain :Street ;
-                                       rdfs:range :District .
+###  http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 
-###  http://BiSafe.com/ontology#happenedIn
-<http://BiSafe.com/ontology#happenedIn> rdf:type owl:ObjectProperty ;
-                                        rdfs:domain <http://www.BiSafe#Accident> ;
-                                        rdfs:range :Street .
-
+#################################################################
+#    Object Properties
+#################################################################
 
 ###  http://BiSafe.com/ontology#hasCondition
 <http://BiSafe.com/ontology#hasCondition> rdf:type owl:ObjectProperty ;
@@ -33,19 +28,20 @@
 
 ###  http://BiSafe.com/ontology#involvedIn
 <http://BiSafe.com/ontology#involvedIn> rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :happenedTo ;
                                         rdfs:domain :Person ;
                                         rdfs:range <http://www.BiSafe#Accident> .
+
+
+###  http://www.BiSafe.com/ontology#happenedTo
+:happenedTo rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://www.BiSafe#Accident> ;
+            rdfs:range :Person .
 
 
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://BiSafe.com/ontology#atNumber
-<http://BiSafe.com/ontology#atNumber> rdf:type owl:DatatypeProperty ;
-                                      rdfs:domain :Street ;
-                                      rdfs:range xsd:integer .
-
 
 ###  http://BiSafe.com/ontology#happenedOn
 <http://BiSafe.com/ontology#happenedOn> rdf:type owl:DatatypeProperty ;
@@ -110,7 +106,42 @@
 ###  http://BiSafe.com/ontology#typeOfAccident
 <http://BiSafe.com/ontology#typeOfAccident> rdf:type owl:DatatypeProperty ;
                                             rdfs:domain <http://www.BiSafe#Accident> ;
-                                            rdfs:range xsd:string .
+                                            rdfs:range [ rdf:type rdfs:Datatype ;
+                                                         owl:oneOf [ rdf:type rdf:List ;
+                                                                     rdf:first "Atropello" ;
+                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                rdf:first "Caida bicicleta" ;
+                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                           rdf:first "Caida motocicleta" ;
+                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                      rdf:first "Caida viajero bus" ;
+                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                 rdf:first "Choque con objeto fijo" ;
+                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                            rdf:first "Colision doble" ;
+                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                       rdf:first "Colision multiple" ;
+                                                                                                                                       rdf:rest rdf:nil
+                                                                                                                                     ]
+                                                                                                                          ]
+                                                                                                               ]
+                                                                                                    ]
+                                                                                         ]
+                                                                              ]
+                                                                   ]
+                                                       ] .
+
+
+###  http://www.BiSafe.com/ontology#atNumber
+:atNumber rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.BiSafe#Accident> ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.BiSafe.com/ontology#happenedIn
+:happenedIn rdf:type owl:DatatypeProperty ;
+            rdfs:domain <http://www.BiSafe#Accident> ;
+            rdfs:range xsd:string .
 
 
 #################################################################
@@ -131,10 +162,6 @@
 
 ###  http://www.BiSafe.com/ontology#Road_condition
 :Road_condition rdf:type owl:Class .
-
-
-###  http://www.BiSafe.com/ontology#Street
-:Street rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
