@@ -5,8 +5,9 @@ account: nrigheriu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 598130
-bundleId: 1731452
+bundleId: 1731697
 url: https://nrigheriu.shinyapps.io/BiSafe/
-when: 1543589100.88593
+when: 1543596960.59355
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: styles.css

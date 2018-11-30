@@ -20,4 +20,19 @@ shinyServer(function(input, output, session) {
                              clusterOptions = markerClusterOptions(removeOutsideVisibleBounds = F),
                              popup = ~content)
     })
+  accidentsInBounds <- reactive({
+    if (is.null(input$mymap_bounds))
+        return(accidentsTibble[FALSE,])
+    bounds <- input$mymap_bounds
+    latRng <- range(bounds$north, bounds$south)
+    lngRng <- range(bounds$east, bounds$west)
+    accidentsInBounds = subset(accidentsTibble, 
+           latitude >= latRng[1] & latitude <= latRng[2] &
+             longitude >= lngRng[1] & longitude <= lngRng[2])
+  })
+  output$histVictims <- renderPlot({
+    accidentsInBounds = accidentsInBounds()
+    hist(as.matrix(accidentsInBounds$victims), main = "Accidents in current area",
+                   xlab = "No. of victims involved")
+  })
 })
