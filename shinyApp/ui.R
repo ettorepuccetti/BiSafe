@@ -10,6 +10,10 @@ ui <- fluidPage(
                                       max(as.Date(accidentsTibble$date,"%d/%m/%Y"))), step = 1),
                 selectInput("gender", label = p("Gender"),
                             choices = c(c("All"), "MUJER", "HOMBRE")),
+                selectInput("district", label = p("District"),
+                            choices = c(c("All"), unique(accidentsTibble$district))),
                 plotOutput("histVictims", height=200)
-                )
+                ),
+  tags$div(id="cite",
+           "Origen de los datos: Ayuntamiento de Madrid (o, en su caso, organo administrativo, organismo o entidad de que se trate)")
 )

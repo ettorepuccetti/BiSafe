@@ -1,16 +1,14 @@
 map = leaflet(accidentsTibble) %>% addProviderTiles(providers$Stamen.TonerLite, 
-                                     options = providerTileOptions(noWrap = TRUE, minZoom=3))
-map = setView(map, -3.70256, 40.4165, zoom = 12)
-
+                                                    options = providerTileOptions(noWrap = TRUE, minZoom=3))
 shinyServer(function(input, output, session) {
   mapData = reactive({
     mapData = subset(accidentsTibble, as.Date(accidentsTibble$date,"%d/%m/%Y") >= input$date[1] & as.Date(accidentsTibble$date,"%d/%m/%Y") <= input$date[2])
-    if (input$gender != "All"){
+    if (input$gender != "All")
       mapData = subset(mapData, mapData$gender %in% input$gender)
-    } 
-    if (input$ageRange != "All"){
+    if (input$ageRange != "All")
       mapData = subset(mapData, mapData$age %in% input$ageRange)
-    }
+    if (input$district != "All")
+      mapData = subset(mapData, mapData$district %in% input$district)
     mapData
   })
   output$mymap <- renderLeaflet({
@@ -32,7 +30,6 @@ shinyServer(function(input, output, session) {
   })
   output$histVictims <- renderPlot({
     accidentsInBounds = accidentsInBounds()
-    hist(as.matrix(accidentsInBounds$victims), main = "Accidents in current area",
-                   xlab = "No. of victims involved")
+    ggplot(accidentsInBounds, aes(x=victims)) + geom_bar() + labs(x="Persons involved", y="Frequency")
   })
 })

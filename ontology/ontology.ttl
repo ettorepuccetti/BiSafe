@@ -22,7 +22,7 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://BiSafe.com/ontology#hasCondition
 <http://BiSafe.com/ontology#hasCondition> rdf:type owl:ObjectProperty ;
-                                          rdfs:domain <http://www.BiSafe#Accident> ;
+                                          rdfs:domain <http://linkedevents.org/ontology/Event> ;
                                           rdfs:range :Road_condition .
 
 
@@ -30,13 +30,19 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 <http://BiSafe.com/ontology#involvedIn> rdf:type owl:ObjectProperty ;
                                         owl:inverseOf :happenedTo ;
                                         rdfs:domain :Person ;
-                                        rdfs:range <http://www.BiSafe#Accident> .
+                                        rdfs:range <http://linkedevents.org/ontology/Event> .
 
 
 ###  http://www.BiSafe.com/ontology#happenedTo
 :happenedTo rdf:type owl:ObjectProperty ;
-            rdfs:domain <http://www.BiSafe#Accident> ;
+            rdfs:domain <http://linkedevents.org/ontology/Event> ;
             rdfs:range :Person .
+
+
+###  http://www.BiSafe.com/ontology#typeOfAccident
+:typeOfAccident rdf:type owl:ObjectProperty ;
+                rdfs:domain <http://linkedevents.org/ontology/Event> ;
+                rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 #################################################################
@@ -45,7 +51,7 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://BiSafe.com/ontology#happenedOn
 <http://BiSafe.com/ontology#happenedOn> rdf:type owl:DatatypeProperty ;
-                                        rdfs:domain <http://www.BiSafe#Accident> ;
+                                        rdfs:domain <http://linkedevents.org/ontology/Event> ;
                                         rdfs:range xsd:dateTime .
 
 
@@ -53,12 +59,6 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 <http://BiSafe.com/ontology#hasAge> rdf:type owl:DatatypeProperty ;
                                     rdfs:domain :Person ;
                                     rdfs:range xsd:integer .
-
-
-###  http://BiSafe.com/ontology#hasCode
-<http://BiSafe.com/ontology#hasCode> rdf:type owl:DatatypeProperty ;
-                                     rdfs:domain <http://www.BiSafe#Accident> ;
-                                     rdfs:range xsd:integer .
 
 
 ###  http://BiSafe.com/ontology#hasRole
@@ -75,7 +75,7 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://BiSafe.com/ontology#hasVictimNumber
 <http://BiSafe.com/ontology#hasVictimNumber> rdf:type owl:DatatypeProperty ;
-                                             rdfs:domain <http://www.BiSafe#Accident> ;
+                                             rdfs:domain <http://linkedevents.org/ontology/Event> ;
                                              rdfs:range xsd:integer .
 
 
@@ -105,7 +105,7 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://BiSafe.com/ontology#typeOfAccident
 <http://BiSafe.com/ontology#typeOfAccident> rdf:type owl:DatatypeProperty ;
-                                            rdfs:domain <http://www.BiSafe#Accident> ;
+                                            rdfs:domain <http://linkedevents.org/ontology/Event> ;
                                             rdfs:range [ rdf:type rdfs:Datatype ;
                                                          owl:oneOf [ rdf:type rdf:List ;
                                                                      rdf:first "Atropello" ;
@@ -134,22 +134,52 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://www.BiSafe.com/ontology#atNumber
 :atNumber rdf:type owl:DatatypeProperty ;
-          rdfs:domain <http://www.BiSafe#Accident> ;
+          rdfs:domain <http://linkedevents.org/ontology/Event> ;
           rdfs:range xsd:integer .
 
 
 ###  http://www.BiSafe.com/ontology#happenedIn
 :happenedIn rdf:type owl:DatatypeProperty ;
-            rdfs:domain <http://www.BiSafe#Accident> ;
+            rdfs:domain <http://linkedevents.org/ontology/Event> ;
             rdfs:range xsd:string .
+
+
+###  http://www.BiSafe.com/ontology#hasDistrictName
+:hasDistrictName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :District ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.BiSafe.com/ontology#hasLatitude
+:hasLatitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Street ;
+             rdfs:range xsd:float .
+
+
+###  http://www.BiSafe.com/ontology#hasLongitude
+:hasLongitude rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Street ;
+              rdfs:range xsd:float .
+
+
+###  http://www.BiSafe.com/ontology#hasStretName
+:hasStretName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Street ;
+              rdfs:range xsd:string .
+
+
+###  http://www.w3.org/2004/02/skos/core#notation
+<http://www.w3.org/2004/02/skos/core#notation> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                               rdfs:range xsd:string .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.BiSafe#Accident
-<http://www.BiSafe#Accident> rdf:type owl:Class .
+###  http://linkedevents.org/ontology/Event
+<http://linkedevents.org/ontology/Event> rdf:type owl:Class .
 
 
 ###  http://www.BiSafe.com/ontology#District
@@ -162,6 +192,14 @@ rdfs:Literal owl:equivalentClass rdfs:Literal .
 
 ###  http://www.BiSafe.com/ontology#Road_condition
 :Road_condition rdf:type owl:Class .
+
+
+###  http://www.BiSafe.com/ontology#Street
+:Street rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
