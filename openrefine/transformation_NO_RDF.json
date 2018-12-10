@@ -1,0 +1,1657 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column LUGAR 1 at index 5 based on column LUGAR ACCIDENTE using expression grel:split(cell.value, \"-\")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "LUGAR 1",
+    "columnInsertIndex": 5,
+    "baseColumnName": "LUGAR ACCIDENTE",
+    "expression": "grel:split(cell.value, \"-\")[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column LUGAR 2 at index 5 based on column LUGAR ACCIDENTE using expression grel:if (length(split(cell.value, \"-\")) > 1,split(value, \"-\")[1],\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "LUGAR 2",
+    "columnInsertIndex": 5,
+    "baseColumnName": "LUGAR ACCIDENTE",
+    "expression": "grel:if (length(split(cell.value, \"-\")) > 1,split(value, \"-\")[1],\"\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LUGAR ACCIDENTE",
+    "columnName": "LUGAR ACCIDENTE"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column LUGAR 1 to position 4",
+    "columnName": "LUGAR 1",
+    "index": 4
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Nº PARTE using expression grel:replaceChars(cell.value, \"/\", \"-\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Nº PARTE",
+    "expression": "grel:replaceChars(cell.value, \"/\", \"-\")",
+    "onError": "store-error",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Tramo Edad using expression grel::if(value.contains(\"DESC\"),\"0-0\",if(value.contains(\"MAS\"),\"74-99\",splitByCharType(value)[2] + \"-\" + splitByCharType(value)[6]))",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Tramo Edad",
+    "expression": "grel::if(value.contains(\"DESC\"),\"0-0\",if(value.contains(\"MAS\"),\"74-99\",splitByCharType(value)[2] + \"-\" + splitByCharType(value)[6]))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Tramo Edad using expression grel:if(value.contains(\"DESC\"),\"0-0\",if(value.contains(\"MAS\"),\"74-99\",splitByCharType(value)[2] + \"-\" + splitByCharType(value)[6]))",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Tramo Edad",
+    "expression": "grel:if(value.contains(\"DESC\"),\"0-0\",if(value.contains(\"MAS\"),\"74-99\",splitByCharType(value)[2] + \"-\" + splitByCharType(value)[6]))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Nº PARTE to Accident_ID",
+    "oldColumnName": "Nº PARTE",
+    "newColumnName": "Accident_ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CPFA Granizo",
+    "columnName": "CPFA Granizo"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPFA Hielo using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPFA Hielo",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPFA Lluvia using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPFA Lluvia",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPFA Niebla using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPFA Niebla",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPFA Seco using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPFA Seco",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPFA Nieve using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPFA Nieve",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Mojada using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Mojada",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Aceite using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Aceite",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Barro using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Barro",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Grava Suelta using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Grava Suelta",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Hielo using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Hielo",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CPSV Seca Y Limpia using expression grel:value == \"SI\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "CPSV Seca Y Limpia",
+    "expression": "grel:value == \"SI\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Tipo Vehiculo",
+    "columnName": "Tipo Vehiculo"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": true,
+          "selection": [],
+          "selectError": false,
+          "invert": false,
+          "name": "TIPO PERSONA",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "TIPO PERSONA"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO PERSONA using expression grel:value.split(\" \")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "TIPO PERSONA",
+    "expression": "grel:value.split(\" \")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column DISTRITO to type Q3032114",
+    "columnName": "DISTRITO",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q3032114",
+        "name": "district of Madrid"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LUGAR 1 using expression grel:if(value.contains(\"NUM\"),value.split(\"NUM\")[0], value.split(\"  \")[0])",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "LUGAR 1",
+    "expression": "grel:if(value.contains(\"NUM\"),value.split(\"NUM\")[0], value.split(\"  \")[0])",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column district_code at index 4 based on column DISTRITO using expression grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "district_code",
+    "columnInsertIndex": 4,
+    "baseColumnName": "DISTRITO",
+    "expression": "grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 1 to type Q79007",
+    "columnName": "LUGAR 1",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q79007",
+        "name": "street"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q79007",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q79007",
+        "name": "street"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column RANGO HORARIO using expression grel:value.split(\" \")[1] + \"-\" + value.split(\" \")[3]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "RANGO HORARIO",
+    "expression": "grel:value.split(\" \")[1] + \"-\" + value.split(\" \")[3]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "description": "Match item calle de Joaquín Costa (Q27137371) for cells containing \"CALLE DE JOAQUIN COSTA \" in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "matched",
+                "l": "matched"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 2: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 2"
+        },
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    },
+    "columnName": "LUGAR 1",
+    "similarValue": "CALLE DE JOAQUIN COSTA ",
+    "judgment": "matched",
+    "match": {
+      "id": "Q27137371",
+      "name": "calle de Joaquín Costa",
+      "score": 100,
+      "types": [
+        "Q79007"
+      ]
+    },
+    "shareNewTopics": false
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column Accident_ID to position 0",
+    "columnName": "Accident_ID",
+    "index": 0
+  },
+  {
+    "op": "core/extend-reconciled-data",
+    "description": "Extend data at index 7 based on column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnInsertIndex": 7,
+    "baseColumnName": "LUGAR 1",
+    "endpoint": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "extension": {
+      "properties": [
+        {
+          "settings": {
+            "references": "any",
+            "limit": "0",
+            "rank": "best"
+          },
+          "name": "coordinate location",
+          "id": "P625"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column street1_code at index 7 based on column LUGAR 1 using expression grel:\"https://www.wikidata.org/wiki\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "matched",
+                "l": "matched"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        },
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "matched",
+                "l": "matched"
+              }
+            },
+            {
+              "v": {
+                "v": "(blank)",
+                "l": "(blank)"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 2: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 2"
+        }
+      ]
+    },
+    "newColumnName": "street1_code",
+    "columnInsertIndex": 7,
+    "baseColumnName": "LUGAR 1",
+    "expression": "grel:\"https://www.wikidata.org/wiki\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lugar1_code at index 7 based on column LUGAR 1 using expression grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lugar1_code",
+    "columnInsertIndex": 7,
+    "baseColumnName": "LUGAR 1",
+    "expression": "grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column street1_code",
+    "columnName": "street1_code"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column coordinate location",
+    "columnName": "coordinate location"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lugar2_code at index 9 based on column LUGAR 2 using expression grel:\"https;//www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lugar2_code",
+    "columnInsertIndex": 9,
+    "baseColumnName": "LUGAR 2",
+    "expression": "grel:\"https;//www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CPSV Hielo",
+    "columnName": "CPSV Hielo"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CPSV Barro",
+    "columnName": "CPSV Barro"
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "description": "Match item Cuesta de la Vega, Madrid (Q5794014) for cells containing \"CUESTA DE LA VEGA \" in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    },
+    "columnName": "LUGAR 1",
+    "similarValue": "CUESTA DE LA VEGA ",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5794014",
+      "name": "Cuesta de la Vega, Madrid",
+      "score": 50,
+      "types": [
+        ""
+      ]
+    },
+    "shareNewTopics": false
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 1 to type Q79007",
+    "columnName": "LUGAR 1",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q79007",
+        "name": "street"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 1 to type Q79007",
+    "columnName": "LUGAR 1",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q79007",
+        "name": "street"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q4830453",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q4830453",
+        "name": "business"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "matched",
+                "l": "matched"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q4830453",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q4830453",
+        "name": "business"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q4830453",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q4830453",
+        "name": "business"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "description": "Match item Cuesta de la Vega, Madrid (Q5794014) for cells containing \"CUESTA DE LA VEGA \" in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "LUGAR 1",
+    "similarValue": "CUESTA DE LA VEGA ",
+    "judgment": "matched",
+    "match": {
+      "id": "Q5794014",
+      "name": "Cuesta de la Vega, Madrid",
+      "score": 50,
+      "types": [
+        ""
+      ]
+    },
+    "shareNewTopics": false
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q4830453",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q4830453",
+        "name": "business"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q4830453",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q4830453",
+        "name": "business"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column lugar1_code",
+    "columnName": "lugar1_code"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lugar1_code at index 7 based on column LUGAR 1 using expression grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lugar1_code",
+    "columnInsertIndex": 7,
+    "baseColumnName": "LUGAR 1",
+    "expression": "grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/recon",
+    "description": "Reconcile cells in column LUGAR 2 to type Q79007",
+    "columnName": "LUGAR 2",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+      "identifierSpace": "http://www.wikidata.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "Q79007",
+        "name": "street"
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column lugar2_code",
+    "columnName": "lugar2_code"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lugar2_code at index 9 based on column LUGAR 2 using expression grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lugar2_code",
+    "columnInsertIndex": 9,
+    "baseColumnName": "LUGAR 2",
+    "expression": "grel:\"https://www.wikidata.org/wiki/\" + cell.recon.match.id",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        },
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            },
+            {
+              "v": {
+                "v": "(blank)",
+                "l": "(blank)"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 2: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 2"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "description": "Match item calle de Joaquín Costa (Q27137371) for cells containing \"CALLE DE JOAQUIN COSTA \" in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    },
+    "columnName": "LUGAR 1",
+    "similarValue": "CALLE DE JOAQUIN COSTA ",
+    "judgment": "matched",
+    "match": {
+      "id": "Q27137371",
+      "name": "calle de Joaquín Costa",
+      "score": 100,
+      "types": [
+        "Q79007"
+      ]
+    },
+    "shareNewTopics": false
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        },
+        {
+          "omitError": false,
+          "expression": "row.flagged",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Flagged Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/recon-judge-similar-cells",
+    "description": "Match item rue Juan Bravo (Q28054647) for cells containing \"CALLE DE JUAN BRAVO \" in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "forNonBlank(cell.recon.judgment, v, v, if(isNonBlank(value), \"(unreconciled)\", \"(blank)\"))",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "none",
+                "l": "none"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1: judgment",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    },
+    "columnName": "LUGAR 1",
+    "similarValue": "CALLE DE JUAN BRAVO ",
+    "judgment": "matched",
+    "match": {
+      "id": "Q28054647",
+      "name": "rue Juan Bravo",
+      "score": 100,
+      "types": [
+        "Q79007"
+      ]
+    },
+    "shareNewTopics": false
+  },
+  {
+    "op": "core/blank-down",
+    "description": "Blank down cells in column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "CALLE",
+                "l": "CALLE"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "LUGAR 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LUGAR 1"
+        }
+      ]
+    },
+    "columnName": "LUGAR 1"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "row.flagged",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Flagged Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LUGAR 2 using expression grel:value.split(\"  \")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "LUGAR 2",
+    "expression": "grel:value.split(\"  \")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "rdf-extension/save-rdf-schema",
+    "description": "Save RDF schema skeleton",
+    "schema": {
+      "baseUri": "http://www.BiSafe.com/",
+      "prefixes": [
+        {
+          "name": "ont",
+          "uri": "http://www.BiSafe.com/ontology#"
+        },
+        {
+          "name": "rdf",
+          "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        },
+        {
+          "name": "owl",
+          "uri": "http://www.w3.org/2002/07/owl#"
+        },
+        {
+          "name": "xsd",
+          "uri": "http://www.w3.org/2001/XMLSchema#"
+        },
+        {
+          "name": "rdfs",
+          "uri": "http://www.w3.org/2000/01/rdf-schema#"
+        },
+        {
+          "name": "ent",
+          "uri": "http://www.BiSafe.com/entity/"
+        },
+        {
+          "name": "foaf",
+          "uri": "http://xmlns.com/foaf/0.1/"
+        }
+      ],
+      "rootNodes": [
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "\"entity/accident_\" + value",
+          "isRowNumberCell": false,
+          "columnName": "Accident_ID",
+          "rdfTypes": [
+            {
+              "uri": "http://www.BiSafe.com/ontology#Accident",
+              "curie": "ont:Accident"
+            }
+          ],
+          "links": [
+            {
+              "uri": "ontology#happenOn",
+              "curie": ":ontology#happenOn",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#date",
+                "columnName": "FECHA"
+              }
+            },
+            {
+              "uri": "ontology#hasVictimeNumber",
+              "curie": ":ontology#hasVictimeNumber",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#int",
+                "columnName": "Nº VICTIMAS *"
+              }
+            },
+            {
+              "uri": "ontology#typeOfAccident",
+              "curie": ":ontology#typeOfAccident",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value.split(\"  \")[0]",
+                "isRowNumberCell": false,
+                "columnName": "TIPO ACCIDENTE"
+              }
+            },
+            {
+              "uri": "ontology#hasRoadCondition",
+              "curie": ":ontology#hasRoadCondition",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "\"http://BiSafe.com/entity/road_condition_\" + value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.BiSafe.com/ontology#RoadCondition",
+                "columnName": "Accident_ID"
+              }
+            },
+            {
+              "uri": "ontology#happenedTo",
+              "curie": ":ontology#happenedTo",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "\"http://www.BiSafe.com/entity/person_\" + value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.BiSafe.com/ontology#Person",
+                "columnName": "Accident_ID"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#firstStreetCode",
+              "curie": "ont:firstStreetCode",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "https://www.wikidata.org/wiki/Q79007",
+                "columnName": "lugar1_code"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#secondStreetCode",
+              "curie": "ont:secondStreetCode",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "https://www.wikidata.org/wiki/Q79007",
+                "columnName": "lugar2_code"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#happenAtCivicNumber",
+              "curie": "ont:happenAtCivicNumber",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#int",
+                "columnName": "Nº"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#happenInDistrict",
+              "curie": "ont:happenInDistrict",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "https://www.wikidata.org/wiki/Q3032114",
+                "columnName": "district_code"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "'entity/person_' + value",
+          "isRowNumberCell": false,
+          "columnName": "Accident_ID",
+          "rdfTypes": [
+            {
+              "uri": "ontology#Person",
+              "curie": ":ontology#Person"
+            }
+          ],
+          "links": [
+            {
+              "uri": "ontology#hasAge",
+              "curie": ":ontology#hasAge",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#int",
+                "columnName": "Tramo Edad"
+              }
+            },
+            {
+              "uri": "ontology#hasRole",
+              "curie": ":ontology#hasRole",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "columnName": "TIPO PERSONA"
+              }
+            },
+            {
+              "uri": "ontology#hasSex",
+              "curie": ":ontology#hasSex",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "columnName": "SEXO"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "value",
+          "isRowNumberCell": false,
+          "columnName": "district_code",
+          "rdfTypes": [
+            {
+              "uri": "https://www.wikidata.org/wiki/Q3032114",
+              "curie": ":https://www.wikidata.org/wiki/Q3032114"
+            }
+          ],
+          "links": [
+            {
+              "uri": "http://www.BiSafe.com/ontology#hasDistrictName",
+              "curie": "ont:hasDistrictName",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value.split(\"  \")[0]",
+                "isRowNumberCell": false,
+                "columnName": "DISTRITO"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "\"ent:\" + \"road_condition_\" + value",
+          "isRowNumberCell": false,
+          "columnName": "Accident_ID",
+          "rdfTypes": [
+            {
+              "uri": "ontology#RoadCondition",
+              "curie": ":ontology#RoadCondition"
+            }
+          ],
+          "links": [
+            {
+              "uri": "ontology#isRaining",
+              "curie": ":ontology#isRaining",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPFA Lluvia"
+              }
+            },
+            {
+              "uri": "ontology#isFoggy",
+              "curie": ":ontology#isFoggy",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPFA Niebla"
+              }
+            },
+            {
+              "uri": "ontology#isSnowing",
+              "curie": ":ontology#isSnowing",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPFA Nieve"
+              }
+            },
+            {
+              "uri": "ontology#isDry",
+              "curie": ":ontology#isDry",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPFA Seco"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#isWet",
+              "curie": "ont:isWet",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPSV Mojada"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#isFrozen",
+              "curie": "ont:isFrozen",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPFA Hielo"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#isOily",
+              "curie": "ont:isOily",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPSV Aceite"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#isGravel",
+              "curie": "ont:isGravel",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPSV Grava Suelta"
+              }
+            },
+            {
+              "uri": "http://www.BiSafe.com/ontology#isStreetCleanAndDry",
+              "curie": "ont:isStreetCleanAndDry",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                "columnName": "CPSV Seca Y Limpia"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-literal",
+          "expression": "value",
+          "isRowNumberCell": true,
+          "valueType": "https://www.wikidata.org/wiki/Q79007"
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "value",
+          "isRowNumberCell": false,
+          "columnName": "lugar1_code",
+          "rdfTypes": [
+            {
+              "uri": "https://www.wikidata.org/wiki/Q79007",
+              "curie": ":https://www.wikidata.org/wiki/Q79007"
+            }
+          ],
+          "links": [
+            {
+              "uri": "http://www.BiSafe.com/ontology#hasStreetName",
+              "curie": "ont:hasStreetName",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "columnName": "LUGAR 1"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "value",
+          "isRowNumberCell": false,
+          "columnName": "lugar2_code",
+          "rdfTypes": [
+            {
+              "uri": "https://www.wikidata.org/wiki/Q79007",
+              "curie": ":https://www.wikidata.org/wiki/Q79007"
+            }
+          ],
+          "links": [
+            {
+              "uri": "http://www.BiSafe.com/ontology#hasStreetName",
+              "curie": "ont:hasStreetName",
+              "target": {
+                "nodeType": "cell-as-literal",
+                "expression": "value",
+                "isRowNumberCell": false,
+                "columnName": "LUGAR 2"
+              }
+            }
+          ]
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "value",
+          "isRowNumberCell": true,
+          "rdfTypes": [],
+          "links": []
+        },
+        {
+          "nodeType": "cell-as-resource",
+          "expression": "value",
+          "isRowNumberCell": true,
+          "rdfTypes": [],
+          "links": []
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Nº using expression value.toNumber()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Nº",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Nº using expression grel:0",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "selectNumeric": false,
+          "expression": "value",
+          "selectBlank": true,
+          "selectNonNumeric": true,
+          "selectError": true,
+          "name": "Nº",
+          "from": 0,
+          "to": 530,
+          "type": "range",
+          "columnName": "Nº"
+        }
+      ]
+    },
+    "columnName": "Nº",
+    "expression": "grel:0",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Nº VICTIMAS * using expression value.toNumber()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Nº VICTIMAS *",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column SKOS_TypeAccident at index 22 based on column TIPO ACCIDENTE using expression grel:\"/kos/accidentes/\" + value.split(\"  \")[0].toLowercase().replace(\" \",\"-\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "SKOS_TypeAccident",
+    "columnInsertIndex": 22,
+    "baseColumnName": "TIPO ACCIDENTE",
+    "expression": "grel:\"/kos/accidentes/\" + value.split(\"  \")[0].toLowercase().replace(\" \",\"-\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO ACCIDENTE using expression grel:value.split(\"  \")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "TIPO ACCIDENTE",
+    "expression": "grel:value.split(\"  \")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/extend-reconciled-data",
+    "description": "Extend data at index 7 based on column LUGAR 1",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnInsertIndex": 7,
+    "baseColumnName": "LUGAR 1",
+    "endpoint": "https://tools.wmflabs.org/openrefine-wikidata/en/api",
+    "identifierSpace": "http://www.wikidata.org/entity/",
+    "schemaSpace": "http://www.wikidata.org/prop/direct/",
+    "extension": {
+      "properties": [
+        {
+          "name": "coordinate location",
+          "id": "P625"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column coordinate Y at index 8 based on column coordinate location using expression grel:value.split(\",\")[1]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "coordinate Y",
+    "columnInsertIndex": 8,
+    "baseColumnName": "coordinate location",
+    "expression": "grel:value.split(\",\")[1]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column coordinate location using expression grel:value.split(\",\")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "coordinate location",
+    "expression": "grel:value.split(\",\")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column coordinate location to coordinate X",
+    "oldColumnName": "coordinate location",
+    "newColumnName": "coordinate X"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column coordinate X to latitude",
+    "oldColumnName": "coordinate X",
+    "newColumnName": "latitude"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column coordinate Y to longitude",
+    "oldColumnName": "coordinate Y",
+    "newColumnName": "longitude"
+  }
+]

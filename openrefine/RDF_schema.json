@@ -1,0 +1,459 @@
+[
+    {
+      "op": "rdf-extension/save-rdf-schema",
+      "description": "Save RDF schema skeleton",
+      "schema": {
+        "baseUri": "http://www.BiSafe.com/",
+        "prefixes": [
+          {
+            "name": "ont",
+            "uri": "http://www.BiSafe.com/ontology#"
+          },
+          {
+            "name": "rdf",
+            "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          },
+          {
+            "name": "owl",
+            "uri": "http://www.w3.org/2002/07/owl#"
+          },
+          {
+            "name": "lode",
+            "uri": "http://linkedevents.org/ontology/"
+          },
+          {
+            "name": "xsd",
+            "uri": "http://www.w3.org/2001/XMLSchema#"
+          },
+          {
+            "name": "skos",
+            "uri": "http://www.w3.org/2004/02/skos/core#"
+          },
+          {
+            "name": "rdfs",
+            "uri": "http://www.w3.org/2000/01/rdf-schema#"
+          },
+          {
+            "name": "ent",
+            "uri": "http://www.BiSafe.com/entity/"
+          },
+          {
+            "name": "wikidata",
+            "uri": "https://www.wikidata.org/wiki/"
+          },
+          {
+            "name": "foaf",
+            "uri": "http://xmlns.com/foaf/0.1/"
+          }
+        ],
+        "rootNodes": [
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "\"entity/accident_\" + value",
+            "isRowNumberCell": false,
+            "columnName": "Accident_ID",
+            "rdfTypes": [
+              {
+                "uri": "http://linkedevents.org/ontology/Event",
+                "curie": "lode:Event"
+              }
+            ],
+            "links": [
+              {
+                "uri": "ontology#hasVictimeNumber",
+                "curie": ":ontology#hasVictimeNumber",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#int",
+                  "columnName": "Nº VICTIMAS *"
+                }
+              },
+              {
+                "uri": "ontology#typeOfAccident",
+                "curie": ":ontology#typeOfAccident",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "SKOS_TypeAccident",
+                  "rdfTypes": [
+                    {
+                      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+                      "curie": "skos:Concept"
+                    }
+                  ],
+                  "links": [
+                    {
+                      "uri": "http://www.w3.org/2004/02/skos/core#notation",
+                      "curie": "skos:notation",
+                      "target": {
+                        "nodeType": "cell-as-literal",
+                        "expression": "value",
+                        "isRowNumberCell": false,
+                        "columnName": "TIPO ACCIDENTE"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "uri": "ontology#hasRoadCondition",
+                "curie": ":ontology#hasRoadCondition",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "\"http://BiSafe.com/entity/road_condition_\" + value",
+                  "isRowNumberCell": false,
+                  "columnName": "Accident_ID",
+                  "rdfTypes": [],
+                  "links": []
+                }
+              },
+              {
+                "uri": "http://linkedevents.org/ontology/atPlace",
+                "curie": "lode:atPlace",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "lugar1_code",
+                  "rdfTypes": [],
+                  "links": []
+                }
+              },
+              {
+                "uri": "http://linkedevents.org/ontology/atPlace",
+                "curie": "lode:atPlace",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "lugar2_code",
+                  "rdfTypes": [],
+                  "links": []
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#happenAtCivicNumber",
+                "curie": "ont:happenAtCivicNumber",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#int",
+                  "columnName": "Nº"
+                }
+              },
+              {
+                "uri": "http://linkedevents.org/ontology/atTime",
+                "curie": "lode:atTime",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#date",
+                  "columnName": "FECHA"
+                }
+              },
+              {
+                "uri": "http://linkedevents.org/ontology/involvedAgent",
+                "curie": "lode:involvedAgent",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "\"http://www.BiSafe.com/entity/person_\" + value",
+                  "isRowNumberCell": false,
+                  "columnName": "Accident_ID",
+                  "rdfTypes": [],
+                  "links": []
+                }
+              },
+              {
+                "uri": "http://linkedevents.org/ontology/inSpace",
+                "curie": "lode:inSpace",
+                "target": {
+                  "nodeType": "cell-as-resource",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "district_code",
+                  "rdfTypes": [],
+                  "links": []
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "'entity/person_' + value",
+            "isRowNumberCell": false,
+            "columnName": "Accident_ID",
+            "rdfTypes": [
+              {
+                "uri": "ontology#Person",
+                "curie": ":ontology#Person"
+              }
+            ],
+            "links": [
+              {
+                "uri": "ontology#hasRole",
+                "curie": ":ontology#hasRole",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "TIPO PERSONA"
+                }
+              },
+              {
+                "uri": "http://xmlns.com/foaf/0.1/Age",
+                "curie": "foaf:Age",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "Tramo Edad"
+                }
+              },
+              {
+                "uri": "http://xmlns.com/foaf/0.1/gender",
+                "curie": "foaf:gender",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "SEXO"
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "value",
+            "isRowNumberCell": false,
+            "columnName": "district_code",
+            "rdfTypes": [
+              {
+                "uri": "https://www.wikidata.org/wiki/Q3032114",
+                "curie": ":https://www.wikidata.org/wiki/Q3032114"
+              }
+            ],
+            "links": [
+              {
+                "uri": "http://www.BiSafe.com/ontology#hasDistrictName",
+                "curie": "ont:hasDistrictName",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value.split(\"  \")[0]",
+                  "isRowNumberCell": false,
+                  "columnName": "DISTRITO"
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "\"ent:\" + \"road_condition_\" + value",
+            "isRowNumberCell": false,
+            "columnName": "Accident_ID",
+            "rdfTypes": [
+              {
+                "uri": "ontology#RoadCondition",
+                "curie": ":ontology#RoadCondition"
+              }
+            ],
+            "links": [
+              {
+                "uri": "ontology#isRaining",
+                "curie": ":ontology#isRaining",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPFA Lluvia"
+                }
+              },
+              {
+                "uri": "ontology#isFoggy",
+                "curie": ":ontology#isFoggy",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPFA Niebla"
+                }
+              },
+              {
+                "uri": "ontology#isSnowing",
+                "curie": ":ontology#isSnowing",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPFA Nieve"
+                }
+              },
+              {
+                "uri": "ontology#isDry",
+                "curie": ":ontology#isDry",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPFA Seco"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#isWet",
+                "curie": "ont:isWet",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPSV Mojada"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#isFrozen",
+                "curie": "ont:isFrozen",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPFA Hielo"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#isOily",
+                "curie": "ont:isOily",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPSV Aceite"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#isGravel",
+                "curie": "ont:isGravel",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPSV Grava Suelta"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#isStreetCleanAndDry",
+                "curie": "ont:isStreetCleanAndDry",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#boolean",
+                  "columnName": "CPSV Seca Y Limpia"
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-literal",
+            "expression": "value",
+            "isRowNumberCell": true,
+            "valueType": "https://www.wikidata.org/wiki/Q79007"
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "value",
+            "isRowNumberCell": false,
+            "columnName": "lugar1_code",
+            "rdfTypes": [
+              {
+                "uri": "https://www.wikidata.org/wiki/Q79007",
+                "curie": ":https://www.wikidata.org/wiki/Q79007"
+              }
+            ],
+            "links": [
+              {
+                "uri": "http://www.BiSafe.com/ontology#hasStreetName",
+                "curie": "ont:hasStreetName",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "LUGAR 1"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#hasLatitude",
+                "curie": "ont:hasLatitude",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#double",
+                  "columnName": "latitude"
+                }
+              },
+              {
+                "uri": "http://www.BiSafe.com/ontology#hasLongitude",
+                "curie": "ont:hasLongitude",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "valueType": "http://www.w3.org/2001/XMLSchema#double",
+                  "columnName": "longitude"
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "value",
+            "isRowNumberCell": false,
+            "columnName": "lugar2_code",
+            "rdfTypes": [
+              {
+                "uri": "https://www.wikidata.org/wiki/Q79007",
+                "curie": ":https://www.wikidata.org/wiki/Q79007"
+              }
+            ],
+            "links": [
+              {
+                "uri": "http://www.BiSafe.com/ontology#hasStreetName",
+                "curie": "ont:hasStreetName",
+                "target": {
+                  "nodeType": "cell-as-literal",
+                  "expression": "value",
+                  "isRowNumberCell": false,
+                  "columnName": "LUGAR 2"
+                }
+              }
+            ]
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "value",
+            "isRowNumberCell": true,
+            "rdfTypes": [],
+            "links": []
+          },
+          {
+            "nodeType": "cell-as-resource",
+            "expression": "value",
+            "isRowNumberCell": true,
+            "rdfTypes": [],
+            "links": []
+          }
+        ]
+      }
+    }
+  ]
