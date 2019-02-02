@@ -6,7 +6,7 @@ R Project for visualisation of bicycle accidents. Contains open data from [Porta
 
 ## Reconciliation and data augmentation
 
-The dataset has been reconciling using the tool provided by RDF extention in [OpenRefine](http://openrefine.org). It look for entities in [WikiData](https://www.wikidata.org/wiki/Wikidata:Main_Page) that matches the rows of our dataset. Once the streets in our dataset have been linked to the objects they refer to by URI, it is possible to extract additional information, like, as in our case, the latitude and longitude.
+The dataset has been reconciling using the tool provided by RDF extention in [OpenRefine](http://openrefine.org). It look for entities in [WikiData](https://www.wikidata.org/wiki/Wikidata:Main_Page) that matches the rows of our dataset. Once the streets in our dataset have been linked to the objects they refer to by URI, it is possible to extract additional informations, like, as in our case, the latitude and longitude.
 
 ![reconc](screenshots/reconcile.png)
 
